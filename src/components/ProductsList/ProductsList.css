@@ -1,0 +1,50 @@
+.container {
+	margin: 30px;
+}
+
+.container h2 {
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 160%;
+	color: #011B33;
+}
+
+table {
+	table-layout: fixed;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+thead {
+	background-color: #A6A6A7;
+	height: 71px;
+	font-size: 20px;
+	color: #01172C;
+}
+
+thead th:nth-child(1) {
+  width: 10%;
+	text-align: left;
+	padding-left: 30px ;
+}
+
+thead th:nth-child(2) {
+  width: 25%;
+	text-align: left;
+	padding-left: 30px ;
+}
+tbody td:nth-child(2) {
+  width: 25%;
+	text-align: left;
+}
+
+tbody td:nth-child(3) {
+	width: 20%;
+	text-align: left;
+}
+
+th, td {
+  padding-right: 20px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
