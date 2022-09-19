@@ -1,0 +1,7 @@
+.grafficPresence {
+	background-color: white;
+	height: 350px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
