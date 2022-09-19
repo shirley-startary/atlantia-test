@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import useFetch from "../../hooks/useFetch";
+import Spinner from "../Spinner";
 import './PriceEvolution.css'
 
 const  reorderData = (data) => {
@@ -63,7 +64,8 @@ const PriceEvolution = () => {
     }
   }
 
-  if(loading) return <h2>Loading...</h2>
+  if(loading ) return <Spinner/>
+	
   if(error) console.log(error)
 
   return (

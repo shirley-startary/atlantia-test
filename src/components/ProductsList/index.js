@@ -1,13 +1,14 @@
 import React from "react";
 import useFetch from "../../hooks/useFetch";
 import Product from "../Product";
+import Spinner from "../Spinner";
 import "./ProductsList.css"
 
 const ProductsList = () => {
 
 	const {data, loading, error} = useFetch('https://atlantia-dev-test.herokuapp.com/api/beer-products/')
 
-	if(loading ) return <h2>Loading...</h2>
+	if(loading ) {return ( <div className="pos-center"><Spinner/></div>)}
 	if(error) console.log(error)
 	return (
 		<div className="container">

@@ -1,6 +1,7 @@
 import React from "react";
 import ReactApexChart from "react-apexcharts";
 import useFetch from "../../hooks/useFetch";
+import Spinner from "../Spinner";
 import './PresenceProduct.css'
 
 const PresenceProduct = () => {
@@ -18,7 +19,7 @@ const PresenceProduct = () => {
 		labels: labels,
 	}
 
-	if (loading) return <h1>Loading...</h1>
+	if(loading ) return <Spinner/>
 
 	if (error) console.log(error)
 
