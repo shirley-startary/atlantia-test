@@ -1,21 +1,14 @@
-import React, { seState, useEffect, useState} from "react";
+import React from "react";
+import useFetch from "../../hooks/useFetch";
 import Product from "../Product";
 import "./ProductsList.css"
 
 const ProductsList = () => {
-	
-	const [products, setProducts] = useState([]);
 
-	useEffect(()=> {
-		obtenerDatos()
-	},[])
-    
-	const obtenerDatos = async () => {
-		const data = await fetch('https://atlantia-dev-test.herokuapp.com/api/beer-products/');
-		const products = await data.json();
-		setProducts(products)
-	}
+	const {data, loading, error} = useFetch('https://atlantia-dev-test.herokuapp.com/api/beer-products/')
 
+	if(loading ) return <h2>Loading...</h2>
+	if(error) console.log(error)
 	return (
 		<div className="container">
 			<h2>Comparative Analysis</h2>
@@ -31,7 +24,7 @@ const ProductsList = () => {
 					</tr>
 				</thead>
 				<tbody>
-					{products.map(product => (
+					{data.map(product => (
 						<Product 		
 							id={product.id} 
 							sku={product.sku} 
@@ -50,4 +43,3 @@ const ProductsList = () => {
 }
 
 export default ProductsList;
-// https://atlantia-dev-test.herokuapp.com/api/beer-products/

@@ -12,14 +12,8 @@ function App() {
         <h1>General performance Analysis</h1>
       </header>
       <section className='container graficos'>
-        <div>
-          <h2>Price Evolution</h2>
-          <PriceEvolution/>
-        </div>
-        <div>
-          <h2>Presence Share by Product</h2>
-          <PresenceProduct/>
-        </div>
+        <PriceEvolution/>
+        <PresenceProduct/>
       </section>
       <ProductsList/>
     </div>

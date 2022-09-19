@@ -1,42 +1,35 @@
-import { logDOM } from "@testing-library/react";
-import React, {useState, useEffect} from "react";
+import React from "react";
 import ReactApexChart from "react-apexcharts";
+import useFetch from "../../hooks/useFetch";
 import './PresenceProduct.css'
 
-
 const PresenceProduct = () => {
-
-	const [series, setSeries] = useState([])
-	const [options, setOptions] = useState({})
-
-	useEffect(()=> {
-		obtenerDatos()
-	} , [])
-	const obtenerDatos = async () => {
-		const data = await fetch(' https://atlantia-dev-test.herokuapp.com/api/presence-share-chart/');
-		const products = await data.json();
-		console.log(products);
-		const labels = products.map(item => item.name)
-		const series = products.map(item => item.presenceShare);
-		
-		const	options= {
-			chart: {
-				type: 'pie',
-				color:['#D6215B', '#7530B2','#006FFF', '#FF7A00', '#23B794'],
-			},
-			labels: labels,
-		}
+	const URL_BASE = 'https://atlantia-dev-test.herokuapp.com/api/presence-share-chart/'
+	const { data, loading, error } =  useFetch(URL_BASE);
 	
-		setOptions(options)
-		setSeries(series)
-	}	
+	const labels = data.map(item => item.name)
+	const series = data.map(item => item.presenceShare);
 
-	return (  <ReactApexChart className='grafficPresence' options={options} series={series} type="pie" width={430}/> )
+	const	options= {
+		chart: {
+			type: 'pie',
+		},
+		colors:['#D6215B', '#7530B2','#006FFF', '#FF7A00', '#23B794'],
+		labels: labels,
+	}
+
+	if (loading) return <h1>Loading...</h1>
+
+	if (error) console.log(error)
+
+	return (
+
+		<div>
+			<h2>Presence Share by Product</h2>
+			<ReactApexChart className='grafficPresence' options={options} series={series} type="pie" width={430}/> 
+		</div>
+			)
 	
 };
-
-
-//  https://atlantia-dev-test.herokuapp.com/api/presence-share-chart/
-
 
 export default PresenceProduct;
