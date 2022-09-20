@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/atlantia-test/static/css/main.1f3bad06.css",
+    "main.js": "/atlantia-test/static/js/main.d5298e20.js",
+    "static/media/logo.png": "/atlantia-test/static/media/logo.05d46f8c6b3a65cfe267.png",
+    "index.html": "/atlantia-test/index.html",
+    "main.1f3bad06.css.map": "/atlantia-test/static/css/main.1f3bad06.css.map",
+    "main.d5298e20.js.map": "/atlantia-test/static/js/main.d5298e20.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.1f3bad06.css",
+    "static/js/main.d5298e20.js"
+  ]
+}
